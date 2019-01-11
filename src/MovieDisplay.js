@@ -18,14 +18,14 @@ class MovieDisplay extends Component{
 
     render(){
         return(
-            <div>
-                <h3>{this.props.movieTitle}</h3>
-                <img src={this.props.poster} alt=""></img>
+            <div className="film">
+                <h3>{this.props.data.Title}</h3>
+                <img src={this.props.data.Poster} alt=""></img>
                 <br></br>
-                <p>{this.props.movieRelease}</p>
-                <p>{this.props.runtime}</p>
-                <p>{this.props.rated}</p>
-                <p>{this.props.plot}</p>
+                <p>{this.props.data.Year}</p>
+                <p>{this.props.data.Runtime}</p>
+                <p>{this.props.data.Rated}</p>
+                <p>{this.props.data.Plot}</p>
             </div>
         );
     }

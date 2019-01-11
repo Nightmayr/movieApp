@@ -24,35 +24,35 @@ class SearchDB extends Component{
     update(){
         axios({
             method: 'get',
-            url:'http://www.omdbapi.com/?t='+this.state.searchQuery+'&apikey=cba3c9de',
+            url:'http://www.omdbapi.com/?s='+this.state.searchQuery+'&apikey=cba3c9de',
             responseType:'json'
         }).then(response =>{ 
-            this.setState({movies:response.data});
+            this.setState({movies:response.data.Search});
         console.log(this.state.movies)
         });  
     }
     
     render(){
-        // let films=[];
-        // if(this.state.movies){
-        //     for(let film of this.state.movies){
-        //         films.push(<MovieDisplay data = {film}/>)
-        //     }
-        // }
+        let films=[];
+        if(this.state.movies){
+            for(let film of this.state.movies){
+                films.push(<MovieDisplay data = {film}/>)
+            }
+        }
 
         return(
             <div>
                 <form>
-                <label>Search Film by Title:</label>
+                <label>Search Film:</label>
                 <br></br>
                 <input id="filmSearch" type="text" onChange={(this.handleInput)}></input>
                 <input type="button" value="Submit" onClick={this.update}></input>
-                {/* {films} */}
+                {films}
                 </form>
 
-            <MovieDisplay movieTitle={this.state.movies["Title"]} poster={this.state.movies["Poster"]}
+            {/* <MovieDisplay movieTitle={this.state.movies["Title"]} poster={this.state.movies["Poster"]}
              movieRelease={this.state.movies["Released"]} runtime={this.state.movies["Runtime"]} 
-             rated={this.state.movies["Rated"]} plot={this.state.movies["Plot"]}/>
+             rated={this.state.movies["Rated"]} plot={this.state.movies["Plot"]}/> */}
             </div>
 
         );
