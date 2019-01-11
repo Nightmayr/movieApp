@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import SearchDB from "./SearchDB";
+import MovieDisplay from "./MovieDisplay";
 
 class App extends Component {
      
